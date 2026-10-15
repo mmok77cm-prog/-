@@ -1,0 +1,8 @@
+{
+  "name": "Remix Remix EngiTrack",
+  "description": "A web-based platform to efficiently track and manage engineering office projects and transaction workflows.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

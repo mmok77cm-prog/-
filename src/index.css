@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Readex Pro', 'IBM Plex Sans Arabic', sans-serif;
+    --font-sans: 'IBM Plex Sans Arabic', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #F8FAFC;
+    color: #0F172A;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono-num {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media screen {
+  .print-only {
+    display: none !important;
+  }
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm 10mm 15mm 10mm;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  html, body {
+    background: #FFFFFF !important;
+    color: #0F172A !important;
+    font-size: 10.5pt !important;
+    line-height: 1.4 !important;
+    overflow: visible !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Hide screen-only components */
+  .no-print,
+  button,
+  input,
+  select,
+  aside,
+  header.no-print,
+  .no-print * {
+    display: none !important;
+  }
+
+  /* Display print-only sections */
+  .print-only {
+    display: block !important;
+  }
+
+  /* Hide main workspace when drawer report is being printed */
+  body.has-open-drawer .no-print-when-drawer-open {
+    display: none !important;
+  }
+
+  /* Full-bleed print for SurveyDetailDrawer */
+  .drawer-overlay {
+    position: static !important;
+    inset: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    background: transparent !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    backdrop-filter: none !important;
+    z-index: auto !important;
+  }
+
+  .drawer-content {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    background: #FFFFFF !important;
+  }
+
+  /* Tables in Print */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    font-size: 9pt !important;
+  }
+
+  thead {
+    display: table-header-group !important;
+  }
+
+  tr {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  th, td {
+    padding: 6px 8px !important;
+    border-color: #CBD5E1 !important;
+  }
+
+  /* Page break rules */
+  .page-break-before {
+    page-break-before: always !important;
+    break-before: page !important;
+  }
+
+  .page-break-inside-avoid,
+  .print-card,
+  .print-avoid-break {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* High contrast borders for paper printing */
+  .border, .border-slate-200, .border-slate-300, .border-slate-100 {
+    border-color: #94A3B8 !important;
+  }
+
+  /* Ensure text colors are rich dark slate/black on white paper */
+  .text-slate-500, .text-slate-600, .text-slate-700 {
+    color: #1E293B !important;
+  }
+}
